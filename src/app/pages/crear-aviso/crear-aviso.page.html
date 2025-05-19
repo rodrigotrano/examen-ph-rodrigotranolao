@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goHome()">
+          <ion-icon slot="icon-only" [icon]="arrowBack"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    <ion-title>Crear Publicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="avisoForm" (ngSubmit)="guardarAviso()">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input type="text" formControlName="titulo"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="avisoForm.get('titulo')?.touched && avisoForm.get('titulo')?.invalid">
+      <p *ngIf="avisoForm.get('titulo')?.errors?.['required']">El título es obligatorio.</p>
+      <p *ngIf="avisoForm.get('titulo')?.errors?.['minlength']">Mínimo 5 caracteres.</p>
+    </ion-text>
+
+    <!-- Fotografía -->
+    <ion-item>
+      <ion-label>Fotografía</ion-label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+    </ion-item>
+    <div *ngIf="previewUrl">
+      <img [src]="previewUrl" style="max-width: 100%; margin-top: 10px;" />
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea formControlName="descripcion"></ion-textarea>
+    </ion-item>
+    <ion-text color="danger" *ngIf="avisoForm.get('descripcion')?.touched && avisoForm.get('descripcion')?.invalid">
+      <p *ngIf="avisoForm.get('descripcion')?.errors?.['required']">La descripción es obligatoria.</p>
+      <p *ngIf="avisoForm.get('descripcion')?.errors?.['minlength']">Mínimo 20 caracteres.</p>
+    </ion-text>
+
+    <ion-button expand="block" type="submit" [disabled]="avisoForm.invalid">Guardar Publicación</ion-button>
+  </form>
+</ion-content>

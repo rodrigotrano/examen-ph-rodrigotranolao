@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container" style="display: flex; flex-direction: column; gap: 16px; align-items: center; margin-top: 40px;">
+    <ion-button expand="block" [routerLink]="'/avisos'">Publicaciones</ion-button>
+    <ion-button expand="block" [routerLink]="'/crear-aviso'">Crear Publicación</ion-button>
+  </div>
+</ion-content>

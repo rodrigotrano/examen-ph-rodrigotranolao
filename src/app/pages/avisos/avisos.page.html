@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon slot="icon-only" [icon]="arrowBack"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Publicaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let aviso of avisos" style="display: flex; align-items: center; gap: 16px; padding: 12px;">
+  <ion-img *ngIf="aviso.imagen" [src]="aviso.imagen" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;"></ion-img>
+  
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+    <h2 style="margin: 0 0 4px;">{{ aviso.titulo }}</h2>
+    <p style="margin: 0;">{{ aviso.descripcion }}</p>
+  </div>
+
+  <div style="margin: 0 12px; white-space: nowrap; font-size: 0.85rem; color: gray;">
+    {{ aviso.fechaCreacion }}
+  </div>
+  
+  <ion-button color="danger" fill="clear" (click)="eliminarAviso(aviso)" aria-label="Eliminar aviso" style="min-width: auto;">
+    <ion-icon slot="icon-only" [icon]="trash"></ion-icon>
+  </ion-button>
+</ion-card>
+
+</ion-content>
