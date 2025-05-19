@@ -10,7 +10,7 @@ import { trashOutline, arrowBackOutline } from 'ionicons/icons';
   templateUrl: './avisos.page.html',
   styleUrls: ['./avisos.page.scss'],
   standalone: true,
-  imports: [IonItem, 
+  imports: [ 
     CommonModule,
     FormsModule,
     RouterModule,
