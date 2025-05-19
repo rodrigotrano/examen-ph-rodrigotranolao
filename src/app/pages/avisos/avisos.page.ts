@@ -22,9 +22,6 @@ import { trashOutline, arrowBackOutline } from 'ionicons/icons';
     IonIcon,
     IonButton,
     IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardContent,
     IonImg
   ]
 })
